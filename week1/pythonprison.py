@@ -5,46 +5,57 @@ personList = []
 colorList = []
 ageList = []
 mylist = ""
-print("""|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-        |||^^^^^|||^^^||||^^^||^^^^^^^^|||||||||||||||||||||||||||||||||||
-       ||||^^|^^^|||^^^^^^^^||||||^^||||||||||||||^^^^^||^^^|||||^||||||||
-       ||||^^||^^^|||||^^|||||||||^^|||^||||||^|||^|||^||^||^||||^||||||||
-       ||||^^|||^^^^|||^^|||||||||^^|||^||||||^|||^|||^||^|||^|||^||||||||
-       ||||^^^^^^^|||||^^|||||||||^^|||^^^^^^^^|||^^||^||^||||^||^||||||||
-       ||||^^||||||||||^^|||||||||^^|||^||||||^|||^|||^||^|||||^|^||||||||
-       ||||^^||||||||||^^|||||||||^^|||^||||||^|||^|||^||^||||||^^||||||||
-       ||||^^||||||||||^^||||||||||||||^||||||^|||^^^^^||^||||||^^||||||||
-       ||||^^|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-       |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-       |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+print("""
+        |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+        ||||^^^^^|||^^^||||^^^||^^^^^^^^|||||||||||||||||||||||||||||||||||
+        ||||^^|^^^|||^^^^^^^^||||||^^||||||||||||||^^^^^||^^^|||||^||||||||
+        |||^^||^^^|||||^^||||||||||^^|||^||||||^|||^|||^||^||^||||^||||||||
+        |||^^|||^^^^|||^^||||||||||^^|||^||||||^|||^|||^||^|||^|||^||||||||
+        |||^^^^^^^|||||^^||||||||||^^|||^^^^^^^^|||^|||^||^||||^||^||||||||
+        |||^^||||||||||^^||||||||||^^|||^||||||^|||^|||^||^|||||^|^||||||||
+        |||^^||||||||||^^||||||||||^^|||^||||||^|||^|||^||^||||||^^||||||||
+        |||^^||||||||||^^|||||||||||||||^||||||^|||^^^^^||^||||||^^||||||||
+        |||^^||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+        |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+        |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
        _____________________Welcome to Python_____________________________""")
 print("Welcome to PYTHON PRISON CAMP!")
 name = input("What is your name:")
 print("Welcome, Officer "+name+"!")
 print("The object of the game is to capture the prisoner 666 that escaped from his prison cell 13.")
-choice = input("You life will be in danger! Do you still want to play this game y/n?")
-if choice == "Y":
-    while "y" in mylist.lower():
-        print("Then give me the names of people you care about?")
+cont = input("You life will be in danger! Do you still want to play this game y/n?")
+prisoners = []
+while "y" in cont.lower():
+    print("Then give me the names of people you care about?")
+    person = color = age =''
+    while not (person) or (len(person.split())< 2):
         person = input("Give me a name?:")
+    if not person:
+        print("Invalid input, please start again!")
+    while not color:
         color = input("What is their favorite color?:")
+    if not color:
+        print("Invalid input, please start again!")
+    while not age or not age.isdigit():
         age = input("How old is this person?:")
-        User[key_list] = { "Give me a name?": person, "What is their favorite color?": color, "How old is this person?": age}
-        mylist = input("Do you want to continue adding people that you care about? Please y/n ")
-        ageList.append(age)
-        personList.append(person)
-        colorList.append(color)
-        if "y" in mylist.lower():
-            continue
-    while personList:
-        print("You will be sorry! You friends have been capture")
-        print("person:" + personList.pop() + " color:" + colorList.pop() + " age:" + ageList.pop(), end=' --- ')
-        print("")
+    if not age:
+        print("Invalid input, please start again!")
+        continue
+    inmate = { "name": person, "fav_color": color, "age": age}
+    cont = input("Do you want to continue adding people that you care about? Please y/n ")
+    prisoners.append(inmate)
+    print("You will be sorry! You friends have been capture")
+while prisoners:
+    inmate = prisoners.pop()
+    print("person:" + inmate["name"] + " color:" + inmate["fav_color"] + " age:" + inmate["age"])
+    print ("")
 
 
 
 
 
+#len tells how many letters
+#llen with splits count words
 
 
 
